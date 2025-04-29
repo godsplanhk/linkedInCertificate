@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "LinkedIn Certificate Downloader",
+    "version": "1.68",
+    "permissions": ["webRequest"],
+    "background": {
+      "service_worker": "service-worker.js",
+      "type": "module"
+    },
+    "action": {
+      "default_icon": "lcd.png"
+    },
+"content_scripts": [
+        {
+          "matches": ["*://www.linkedin.com/*"],
+            "js": ["content.js","./libs/pdf-lib.min.js"],
+            "run_at":"document_idle"
+        }],
+        "host_permissions": [
+    "*://*.linkedin.com/*"
+  ]
+      }  
